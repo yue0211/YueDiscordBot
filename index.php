@@ -10,7 +10,7 @@ $myarray = json_decode($Json, true);*/
 
 //echo $text;
 $result="";
-
+echo "驗證碼:".$result;
 /*for($i=0;$i<count($myarray["id"]);$i++)
 	if($myarray["id"][$i]==$text)
 	{
@@ -19,7 +19,7 @@ $result="";
 		break;
 	}
 	
-echo "驗證碼:".$result;
+
 
 $myarray["code"]=$result;
 
