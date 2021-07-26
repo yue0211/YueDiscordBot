@@ -1,0 +1,244 @@
+<html>
+<head>
+ <meta charset = "utf-8">
+ <title>Discord 進階身分驗證</title>
+ <style type="text/css">
+ 
+
+
+ div.Gate01{
+	border:5px solid #00BDBD;
+	float:left;
+	width:200px;
+	height:250px;
+	margin-left:500px;
+	text-align:center;
+	padding:20px;
+	font-size:19px;
+ }
+ div.Gate02{
+	
+	float:right;
+	border:5px solid #969696;
+	width: 200px;
+	height: 250px;
+	margin-right:500px;
+	text-align:center;
+	padding:20px;
+	font-size:19px;
+ }
+ 
+ div.Gate03{
+	margin-top:370px;
+	border:5px solid #969696;
+	width:450px;
+	height:800px;
+	margin-left:500px;
+	text-align:center;
+	padding:20px;
+	font-size:19px;
+ }
+ 
+  div.Gate04{
+	margin-top:50px;
+	border:5px solid #969696;
+	width:450px;
+	height:400px;
+	margin-left:500px;
+	text-align:center;
+	padding:20px;
+	font-size:19px;
+ }
+ 
+ 
+ 
+ input.description
+ {
+	height:50px;
+	border:3px #262626 solid;
+	outline:medium;
+	margin-top:20px;
+	color:black;
+ }
+ 
+ 
+ </style>
+ 
+ <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>	
+ <script type="text/javascript">
+
+         var output = ""; // stores the output 
+		 var checkGate01=0;
+		 var checkGate02=0;
+		 var checkGate03=0;
+		 var checkGate04=0;
+
+         function Gate01()  //gate01 轉到 gate02
+         {
+			var Gate01=document.getElementById( "Gate01" );
+			var Gate02=document.getElementById( "Gate02" );
+			Gate02.style.border="5px solid #00BDBD";
+			Gate02.style.color="BABABA";
+			Gate01.style.color="#696969";
+			var choice = document.getElementById('choice');
+			for(var i=0;i<choice.length;i++)
+				choice[i].disabled=false;
+         } // end function calculateFactorials
+         
+		 function Gate02()  //gate02 轉到 gate03
+         {
+			var Gate02=document.getElementById( "Gate02" );
+			var Gate03=document.getElementById( "Gate03" );
+			Gate03.style.border="5px solid #00BDBD";
+			Gate03.style.color="BABABA";
+			Gate02.style.color="#696969";
+			var choice = document.getElementById('choice');
+			var description = document.getElementById('description');
+			for(var i=0;i<choice.length;i++)
+			{
+				choice[i].disabled=true;
+				description[i].disabled=false;
+				description[i].style.border="3px solid red";
+			}
+         } // end function calculateFactorials
+		 
+		 function finish()  //勾選同意
+		 {
+			var describe1=document.getElementById('describe1').value;
+			var describe2=document.getElementById('describe2').value;
+			var describe3=document.getElementById('describe3').value;
+			var describe4=document.getElementById('describe4').value;
+			
+			if(describe1=="禁止引戰、謾罵、洗頻"&&describe2=="減少不雅用詞"&&describe3=="尊重與遵從管理員指示"&&describe4=="保持頻道主題相符話題")
+			{
+				Gate04();
+			}
+			else
+			{
+				alert("尚未輸入完成");
+				document.getElementById("agree").checked=false;
+			}
+			
+		 }
+		 
+		 function Gate04()  //gate04 會員認證
+		 {
+			var Gate04=document.getElementById( "Gate04" );
+			var Gate03=document.getElementById( "Gate03" );
+			Gate04.style.border="5px solid #00BDBD";
+			Gate04.style.color="BABABA";
+		    Gate03.style.color="#696969";
+			var description = document.getElementById('description');
+			for(var i=0;i<description.length;i++)
+				description[i].disabled=true;
+			var text=document.getElementById( "text" );
+			text.disabled=false;
+			
+		 }
+		 
+		 
+		 function progress() {
+			var text = $("#text").val();
+			$.ajax({
+			url: "index.php",
+			data: {
+					text:text
+				},
+			type: "POST",
+			datatype: "html",
+				success: function( output ) {
+			   $( "#out" ).html(output);
+				},
+			error : function(){
+				alert( "Request failed." );
+			}
+			});
+	}
+		 
+ </script>
+
+</head>
+<body style="background-color:#262626;">
+		
+		<p style="font-size:50px;text-align:center;color:#969696">SHELTER ZONE - 🚧 邊境檢查</p>
+		
+		<div>
+		<div class="Gate01" id="Gate01" style="color:#BABABA;">
+			<p style="font-size:21px;">Gate-01 --- 加入伺服器</p>
+			
+			<div>
+				<p>請先加入discord 伺服器</p>
+				
+				<a href="https://discord.gg/x56ysVUa" target="_blank" onclick="Gate01()" style="color:#00BDBD;">Join Server</a>
+			</div>
+			
+		</div>
+		
+		<div class="Gate02" id="Gate02" style="color:#696969;text-align:left;">
+			<p style="font-size:21px;">Gate-02 --- 加入伺服器目的</p>
+			
+			<div style="margin:17px;">
+				<form action="#" style="zoom:120%" id="choice" >
+					<input type="checkbox" disabled onclick="Gate02()"> <label>Youtube</label><br>
+				
+					<input type="checkbox" disabled onclick="Gate02()"> <label>程式設計</label><br>
+				
+					<input type="checkbox" disabled onclick="Gate02()"> <label>跑online</label><br>
+				
+					<input type="checkbox" disabled onclick="Gate02()"> <label>楓之谷</label>
+				</form>
+			</div>
+			
+		</div>
+		</div>
+		<div class="Gate03" style="color:#696969;" id="Gate03">
+			<div>
+				<p style="font-size:21px;">Gate 03 - 避難者條款</p>
+				<div>
+					<p>請依照提示重複輸入文字</p>
+					<div>
+						<form method = "post" action="#" id="description">
+							<input type="text" class="description" placeholder="禁止引戰、謾罵、洗頻" required disabled id="describe1"><br>
+							<input type="text" class="description" placeholder="減少不雅用詞" required disabled id="describe2"><br>
+							<input type="text" class="description" placeholder="尊重與遵從管理員指示" required disabled id="describe3"><br>
+							<input type="text" class="description" placeholder="保持頻道主題相符話題" required disabled id="describe4"><br>
+						</form>
+					</div>
+					<hr>
+					<div style="text-align:left;">
+						<p>其他注意事項:</p>
+						<p>1. 不要在任何分享性質頻道閒聊與問答</p>
+						<p>2. 除非問題涉及隱私，否則別亂私訊他人</p>
+						<p>3. 拜託，當個有素質的正常人</p>
+					</div>
+					<p style="text-align:left;font-weight:bold;">如違反以上規定，且不聽從管理員勸告指示者，一律永Ban</p>
+					<div >
+						<form method = "post" action="#">
+							<input type="checkbox" id="agree" onclick="finish()"> <label>我同意以上條款</label>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="Gate04" style="color:#696969;" id="Gate04">
+			<p style="font-size:21px;">Gate 04 - 認證碼</p>
+			<div>
+				<p style="font-size:19px;text-align:left;">於伺服器 💾terminal 頻道輸入 atid 指令可獲取自己的Discord ID</p>
+				<p style="font-size:19px;text-align:left;">請確實輸入ID，否則產生的驗證碼為無效驗證碼</p>
+				<input id="text" type="text" placeholder="此輸入你的 Discord ID" class="description" style="margin-left:-200px;" required disabled>
+				<input id = "submit" type="button" value = "產生驗證碼" onclick="progress()">
+				<p style="font-size:19px;text-align:left;">於伺服器 💾terminal 頻道輸入指令 p\check + 你的驗證碼</p>
+				<p style="font-size:19px;text-align:left;">範例: p\check 8@2f89%2</p>
+				
+				<p id="out" style="color:yellow;text-align:left;"><p>
+			</div>
+		</div>
+		<p style="color:red;font-size:19px;text-align:center;">如有任何指令或驗證碼無法運作，請聯繫管理員或幹幹的#4971</p>
+		
+		
+		
+		
+</body>
+</html>
