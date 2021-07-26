@@ -3,29 +3,35 @@
 $text= $_POST["text"];
 // data strored in array
 
-/*$Json = file_get_contents("setting.json");
-// Converts to an array 
-$myarray = json_decode($Json, true);*/
+
+$hostname = "ec2-52-2-118-38.compute-1.amazonaws.com";
+$dbname = "dfdobug1c771t2";
+$username = "cbynnhmmgimwaq";
+$pass = "3d7fc902098189e0744a6ec5a9c84904af2cd1607c297488d51fda4654c6c518";
+
+// CREATE the connection TO the PostgreSQL
+$db_conn = pg_connect(" host = $hostname dbname = $dbname user = $username password = $pass ");
 
 
-//echo $text;
-$result="";
-echo "驗證碼:".$result;
-/*for($i=0;$i<count($myarray["id"]);$i++)
-	if($myarray["id"][$i]==$text)
-	{
-		for($j=0;$j<10;$j++)
-		  $result=$result.strval(rand(0,10));
-		break;
-	}
-	
+$result = pg_query($db_conn, "SELECT * FROM discord_Yue");
 
+while ($row = pg_fetch_row($result)) {
+  if($row[2]==$text)
+  {	
+	  $temp="";
+	  for($i=0;$i<10;$i++)
+		$temp=$temp.rand(0,9);
+	  
+	  echo "驗證碼: ".$temp;
+	  
+	  //$query = pg_query($db_conn, "INSERT  INTO users(first_name, last_name) VALUES ('$fname','$lname');");
+	  $query = pg_query($db_conn, "UPDATE discord_Yue SET code = ('$temp')");
+	  
+  }
+  else
+	echo "驗證錯誤";
+  break;
+}
 
-$myarray["code"]=$result;
-
-
-// encode array to json
-$json = json_encode($myarray);
-$bytes = file_put_contents("setting.json", $json); */
 
 ?>
