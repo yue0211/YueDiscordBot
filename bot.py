@@ -1,0 +1,47 @@
+import discord
+import json 
+import os
+import psycopg2
+from discord.ext import commands
+intents = discord.Intents.all()
+
+bot = commands.Bot(command_prefix="#",intents=intents)
+
+
+with open('setting.json',mode='r',encoding='utf-8') as inFile: 
+    data=json.load(inFile)
+
+
+
+for fileName in os.listdir("./commands"): 
+    if fileName.endswith(".py"):  
+       bot.load_extension(f'commands.{fileName[:-3]}') 
+
+
+@bot.event 
+async def on_ready():
+    print(">>>Bot is online<<<")
+
+#load
+@bot.command()  
+async def load(ctx,extension): 
+    bot.load_extension(f'commands.{extension}')
+    await ctx.send(f'Loaded {extension} done.')
+
+#unload
+@bot.command()
+async def unload(ctx,extension): 
+    bot.unload_extension(f'commands.{extension}')
+    await ctx.send(f'Un - Loaded {extension} done.') 
+
+
+#reload
+@bot.command() 
+async def reload(ctx,extension): 
+    bot.reload_extension(f'commands.{extension}')
+    await ctx.send(f'Re - Loaded {extension} done.') 
+
+
+if __name__=="__main__":  
+    bot.run(data["Token"])
+
