@@ -1,14 +1,13 @@
 import discord
 import json 
 import os
-import psycopg2
 from discord.ext import commands
 intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix="#",intents=intents)
 
 
-for fileName in os.listdir("./commands"): 
+for fileName in os.listdir("./YueDiscordBot/commands"): 
     if fileName.endswith(".py"):  
        bot.load_extension(f'commands.{fileName[:-3]}') 
 
