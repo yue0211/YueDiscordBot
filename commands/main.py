@@ -20,19 +20,17 @@ class Main(Cog_Extension):
         postgres_update_query = f"""UPDATE discord_yue SET id = {temp} WHERE id =%s """
         self.cursor.execute(postgres_update_query, (id,))
         self.conn.commit()
+        self.cursor.execute(self.postgres_select_query)
+        self.all=self.cursor.fetchall()
 
     @commands.command() # 確認驗證碼
     async def check(self,ctx,code):
         self.cursor.execute(self.postgres_select_query)
         self.all=self.cursor.fetchall()
-        if str(self.all[0][2])!=code:
+        if str(self.all[0][3])!=code:
            await ctx.channel.send("驗證碼錯誤")
         else:
            await ctx.channel.send("驗證碼正確")
-
-
-
-
 
 
 

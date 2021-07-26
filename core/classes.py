@@ -17,16 +17,16 @@ class Cog_Extension(commands.Cog):
         self.cursor.execute(self.create_table_query)
         self.conn.commit()
 
-        # record = ('868764242327785492','868764242327785495','2468','5487')
-        # table_columns = '(Yue,Yue_channel,id,code)'
-        # postgres_insert_query = f"""INSERT INTO discord_Yue {table_columns} VALUES (%s, %s, %s, %s);"""
+        record = ('868764242327785492','868764242327785495','','')  # id,code
+        table_columns = '(Yue,Yue_channel,id,code)'
+        postgres_insert_query = f"""INSERT INTO discord_Yue {table_columns} VALUES (%s, %s, %s, %s);"""
 
-        # self.cursor.execute(postgres_insert_query, record)
-        # self.conn.commit()
+        self.cursor.execute(postgres_insert_query, record)
+        self.conn.commit()
 
-        #self.cursor.delete_table_query = '''DROP TABLE IF EXISTS discord_yue'''
-        #self.cursor.cursor.execute(delete_table_query)
-        #self.cursor.conn.commit()
+        #delete_table_query = '''DROP TABLE IF EXISTS discord_yue'''
+        #self.cursor.execute(delete_table_query)
+        #self.conn.commit()
 
         self.postgres_select_query = f"""SELECT * FROM discord_Yue"""
         self.cursor.execute(self.postgres_select_query)
