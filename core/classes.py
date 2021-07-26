@@ -6,7 +6,7 @@ class Cog_Extension(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
         # 把 Heroku Postgres 的相關資訊寫到下列指令 (database, user, password, host, port)
-        self.conn=psycopg2.connect(database="d67e7e41h34ts4",user="vyasdoojomuxan",password="9fcc11824ce326d017922592a9da2547b16336d84c8b7d1f70b4b828eaf9b676",host="ec2-34-228-100-83.compute-1.amazonaws.com",port="5432")
+        self.conn=psycopg2.connect(database="dfdobug1c771t2",user="cbynnhmmgimwaq",password="3d7fc902098189e0744a6ec5a9c84904af2cd1607c297488d51fda4654c6c518",host="ec2-52-2-118-38.compute-1.amazonaws.com",port="5432")
         self.cursor=self.conn.cursor()
         self.create_table_query = '''CREATE TABLE IF NOT EXISTS discord_Yue(
                                 Token VARCHAR (200) ,
@@ -29,7 +29,6 @@ class Cog_Extension(commands.Cog):
                                 YueRoleHighEmoji VARCHAR (50) ,
                                 RabbitCEmoji VARCHAR (50) ,
                                 RabbitPythonEmoji VARCHAR (50) ,
-                                url_picture VARCHAR (50) ,
                                 time VARCHAR (50) ,
                                 id VARCHAR (50) ,
                                 code VARCHAR (50) 
