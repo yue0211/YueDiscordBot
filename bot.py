@@ -7,7 +7,7 @@ intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="#",intents=intents)
 
 
-for fileName in os.listdir("./YueDiscordBot/commands"): 
+for fileName in os.listdir("./commands"): 
     if fileName.endswith(".py"):  
        bot.load_extension(f'commands.{fileName[:-3]}') 
 
