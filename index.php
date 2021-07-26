@@ -1,5 +1,5 @@
 <?php 
-header('index.html');
+
 $text= $_POST["text"];
 // data strored in array
 
