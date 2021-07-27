@@ -16,7 +16,7 @@ $db_conn = pg_connect(" host = $hostname dbname = $dbname user = $username passw
 $result = pg_query($db_conn, "SELECT * FROM discord_Yue");
 
 while ($row = pg_fetch_row($result)) {
-  if($row[2]==$text)
+  if($row[0]==$text)
   {	
 	  $temp="";
 	  for($i=0;$i<10;$i++)
