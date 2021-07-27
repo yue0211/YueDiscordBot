@@ -4,6 +4,11 @@ import os
 from discord.ext import commands
 intents = discord.Intents.all()
 
+
+with open('setting.json',mode='r',encoding='utf-8') as inFile: 
+    data=json.load(inFile)
+
+
 bot = commands.Bot(command_prefix="#",intents=intents)
 
 
@@ -37,5 +42,5 @@ async def reload(ctx,extension):
 
 
 if __name__=="__main__":  
-    bot.run("ODY3Mzc0NDUyNzc3OTQzMDcw.YPgLaA.FLNc3cYU8UB1h5VLDWCN6Q2lV-0")
+    bot.run(data["Token"])
 
