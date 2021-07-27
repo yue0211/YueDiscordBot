@@ -22,8 +22,8 @@ class Main(Cog_Extension):
         embed.set_thumbnail(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJpozH7Fz41uprarazDZUrs7_Wu06uGkUvRw&usqp=CAU")
         embed.add_field(name="1. 禁止引戰、謾罵、洗頻", value="我們不希望交流環境充滿烏煙瘴氣及負能量", inline=False)
         embed.add_field(name="2. 減少不雅用詞", value="我們希望塑造一個充滿和諧與素質的交流環境，請盡可能減少不雅用詞", inline=False)
-        embed.add_field(name="3. 尊重與聽從管理員其指示", value="也許社群會有一些額外的標準流程或規定，但任何時候請遵從管理員的指示與決定", inline=False)
-        embed.add_field(name="4. 保持與頻道主題相符的話題", value="這有助於頻道整潔、話題的延續、歷史查詢", inline=False)
+        embed.add_field(name="3. 尊重與遵從管理員指示", value="也許社群會有一些額外的標準流程或規定，但任何時候請遵從管理員的指示與決定", inline=False)
+        embed.add_field(name="4. 保持頻道主題相符話題", value="這有助於頻道整潔、話題的延續、歷史查詢", inline=False)
         embed.add_field(name="5. 不要用私訊問問題，除非問題涉及隱私", value="伺服器裡已經有問題詢問區，沒有特殊問題下私訊是很擾人的行為", inline=False)
         await ctx.send(embed=embed)
 
