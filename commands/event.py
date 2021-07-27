@@ -12,8 +12,9 @@ class Event(Cog_Extension):
     @commands.Cog.listener() 
     async def on_member_join(self,member):  #成員加入頻道
         if member.guild.id==(int(data["Yue"])):
-            channel=self.bot.get_channel(int(data["YueMainRoom"]))
-            await channel.send(f'{member}已加入本群,如要解鎖更多頻道權限請去 #升級會員資格 設定資料') 
+            channel=self.bot.get_channel(int(data["YueMainRoom"])) #大廳
+            channelTwo=self.bot.get_channel(int(data["YueLevelUpRoom"])) #升級會員資格頻道
+            await channel.send(f'{member}已加入本群,如要解鎖更多頻道權限請去 {channelTwo.mention} 設定資料') 
             role = discord.utils.get(member.guild.roles,id=(int(data["YueNormalMember"]))) #普通會員身份
             await member.add_roles(role)
             await member.send(f"{member.name} 群內有許多資源,可善加利用,並遵守相關規定,謝謝配合")
