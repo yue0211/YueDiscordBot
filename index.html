@@ -10,7 +10,7 @@
         .green{
             border:5px solid #969696;
         }
-	<!--/* 寬螢幕模式：寬螢寬度 1200px 以上。 */-->
+		<!--/* 寬螢幕模式：寬螢寬度 1200px 以上。 */-->
         @media screen and (min-width:1200px) {
             p{
 		font-size:20px;
@@ -20,71 +20,74 @@
         @media screen and (min-width: 992px) and (max-width: 1199px) {
 		p{
 			font-size:20px;
-		 }
+		}
         }
         <!--/* 平板模式：寬螢寬度 768px 以上，小於 992px。 */-->
         @media screen and (min-width: 768px) and (max-width: 991px) {
             p{
 		font-size:20px;
-	      }
+	     }
         }
         <!--/* 手機模式：寬螢寬度小於 768px。 */-->
         @media screen and (max-width: 767px) {
-            p{
-		font-size:10px;
-	     }
-	     label{
-		 font-size:10px;
-	     }
-	     input::-webkit-input-placeholder {
-		font-size: 10px;
-		line-height: 2;
-		line-width: 5;
-	     }
-	     .btn{
-		font-size:10px;
-	     }
-	
+		p{
+		    font-size:10px;
+		}
+		label{
+			font-size:10px;
+		}
+		input::-webkit-input-placeholder {
+			font-size: 10px;
+			line-height: 2;
+			line-width: 5;
+		}
+		.btn{
+			font-size:10px;
+		}
+
+		input{
+			font-size:10px;  <!--控制格子大小-->
+		}
         }
     </style>
     <script type="text/javascript">
 
          var output = ""; // stores the output 
-		 var checkGate01=0;
-		 var checkGate02=0;
-		 var checkGate03=0;
-		 var checkGate04=0;
+	 var checkGate01=0;
+	 var checkGate02=0;
+	 var checkGate03=0;
+	 var checkGate04=0;
 
          function Gate01()  //gate01 轉到 gate02
          {
-			var Gate01=document.getElementById( "Gate01" );
-			var Gate02=document.getElementById( "Gate02" );
+	    var Gate01=document.getElementById( "Gate01" );
+	    var Gate02=document.getElementById( "Gate02" );
             Gate01.style.border="5px solid #00BDBD";
-			Gate02.style.border="5px solid #00BDBD";
-			Gate02.style.color="BABABA";
-			Gate01.style.color="#696969";
-			var choice1 = document.getElementById('choice1');
+	    Gate02.style.border="5px solid #00BDBD";
+	    Gate02.style.color="BABABA";
+	    Gate01.style.color="#696969";
+	    var choice1 = document.getElementById('choice1');
             var choice2 = document.getElementById('choice2');
             var choice3 = document.getElementById('choice3');
             var choice4 = document.getElementById('choice4');
-			choice1.disabled=false;
+	    choice1.disabled=false;
             choice2.disabled=false;
             choice3.disabled=false;
             choice4.disabled=false;
          } // end function calculateFactorials
          
-		 function Gate02()  //gate02 轉到 gate03
+	 function Gate02()  //gate02 轉到 gate03
          {
-			var Gate02=document.getElementById( "Gate02" );
-			var Gate03=document.getElementById( "Gate03" );
-			Gate03.style.border="5px solid #00BDBD";
-			Gate03.style.color="BABABA";
-			Gate02.style.color="#696969";
-			var choice1 = document.getElementById('choice1');
+	    var Gate02=document.getElementById( "Gate02" );
+	    var Gate03=document.getElementById( "Gate03" );
+            Gate03.style.border="5px solid #00BDBD";
+	    Gate03.style.color="BABABA";
+	    Gate02.style.color="#696969";
+	    var choice1 = document.getElementById('choice1');
             var choice2 = document.getElementById('choice2');
             var choice3 = document.getElementById('choice3');
             var choice4 = document.getElementById('choice4');
-			var describe1 = document.getElementById('describe1');
+	    var describe1 = document.getElementById('describe1');
             var describe2 = document.getElementById('describe2');
             var describe3 = document.getElementById('describe3');
             var describe4 = document.getElementById('describe4');
@@ -100,7 +103,7 @@
          } // end function calculateFactorials
 
 
-        function finish()  //勾選同意
+        	 function finish()  //勾選同意
 		 {
 			var describe1=document.getElementById('describe1').value;
 			var describe2=document.getElementById('describe2').value;
@@ -123,21 +126,21 @@
 			var Gate03=document.getElementById( "Gate03" );
 			Gate04.style.border="5px solid #00BDBD";
 			Gate04.style.color="BABABA";
-		    Gate03.style.color="#696969";
-            var describe1 = document.getElementById('describe1');
-            var describe2 = document.getElementById('describe2');
-            var describe3 = document.getElementById('describe3');
-            var describe4 = document.getElementById('describe4');
-            describe1.disabled=true;
-            describe2.disabled=true;
-            describe3.disabled=true;
-            describe4.disabled=true;
+		        Gate03.style.color="#696969";
+			var describe1 = document.getElementById('describe1');
+			var describe2 = document.getElementById('describe2');
+			var describe3 = document.getElementById('describe3');
+			var describe4 = document.getElementById('describe4');
+			describe1.disabled=true;
+			describe2.disabled=true;
+			describe3.disabled=true;
+			describe4.disabled=true;
 			var text=document.getElementById( "text" );
 			text.disabled=false;
 			
 		 }
 		 
-         function progress() {
+		 function progress() {
 			var text = $("#text").val();
 			$.ajax({
 			url: "index.php",
