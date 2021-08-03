@@ -10,6 +10,45 @@
         .green{
             border:5px solid #969696;
         }
+		<!--/* 寬螢幕模式：寬螢寬度 1200px 以上。 */-->
+        @media screen and (min-width:1200px) {
+            p{
+				font-size:20px;
+			}
+        }
+        <!--/* 膝上型模式：寬螢寬度 992px 以上，小於 1200px。 */-->
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+			p{
+				font-size:20px;
+			}
+        }
+        <!--/* 平板模式：寬螢寬度 768px 以上，小於 992px。 */-->
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            p{
+				font-size:20px;
+			}
+        }
+        <!--/* 手機模式：寬螢寬度小於 768px。 */-->
+        @media screen and (max-width: 767px) {
+            p{
+				font-size:10px;
+			}
+			label{
+				font-size:10px;
+			}
+			input::-webkit-input-placeholder {
+				font-size: 5px;
+				line-height: 2;
+			}
+			.btn{
+				font-size:5px;
+			}
+			
+			input{
+				font-size:10px;
+			}
+			
+        }
     </style>
     <script type="text/javascript">
 
@@ -126,13 +165,13 @@
     <div class="container">
         <div class="row justify-content-center" >
             <div class="col-4 col-md-3 col-lg-3 green mx-md-2 mx-lg-2 mx-2" id="Gate01">
-                <p style="font-size:20px;">Gate-01-加入伺服器</p>
-				<p style="font-size:20px;">請先加入discord 伺服器</p>
+                <p>Gate-01-加入伺服器</p>
+				<p>請先加入discord 伺服器</p>
                 <a class="btn btn-primary mb-2" href="https://discord.gg/GGsREnk3" role="button" target="_blank" onclick="Gate01()">加入伺服器</a>
                 
             </div>
             <div class="col-4 col-md-3 col-lg-3 green " id="Gate02">
-                <p style="font-size:20px;">Gate-02-加入伺服器目的</p>
+                <p>Gate-02-加入伺服器目的</p>
                 <div class="form-check text-md-start" style="font-size:15px;">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="choice1" onclick="Gate02()" disabled>
                     <label class="form-check-label text-md-start" for="flexRadioDefault1">
@@ -163,8 +202,8 @@
         </div>
         <div class="row justify-content-center mt-md-2 mt-lg-2 mt-2" >
             <div class="col-8 col-md-6 col-lg-6 green " id="Gate03">
-                <p style="font-size:20px;">Gate-03-避難者條款</p>
-				<p style="font-size:18px;">請依照提示重複輸入文字</p>
+                <p>Gate-03-避難者條款</p>
+				<p>請依照提示重複輸入文字</p>
                 <div class="row justify-content-center">
 					<div class="col-md-6 col-12">
 						<div class="input-group mb-md-3 mb-3">
@@ -197,13 +236,13 @@
                 <hr>
                 <div class="row ">
 					<div class="col-md-6 col-12">
-                        <p style="font-size:20px;margin-top:10px;text-align:left;">其他注意事項:</p>
-                        <p style="font-size:20px;margin-top:5px;text-align:left;">1. 不要在任何分享性質頻道閒聊與問答</p>
-                        <p style="font-size:20px;margin-top:5px;text-align:left;">2. 除非問題涉及隱私，否則別亂私訊他人</p>
-                        <p style="font-size:20px;margin-top:5px;text-align:left;">3. 拜託，當個有素質的正常人</p>
-                        <p style="font-size:20px;margin-top:5px;text-align:left;">如違反以上規定，且不聽從管理員勸告指示者，一律永Ban</p>	
+                        <p style="margin-top:10px;text-align:left;">其他注意事項:</p>
+                        <p style="margin-top:5px;text-align:left;">1. 不要在任何分享性質頻道閒聊與問答</p>
+                        <p style="margin-top:5px;text-align:left;">2. 除非問題涉及隱私，否則別亂私訊他人</p>
+                        <p style="margin-top:5px;text-align:left;">3. 拜託，當個有素質的正常人</p>
+                        <p style="margin-top:5px;text-align:left;">如違反以上規定，且不聽從管理員勸告指示者，一律永Ban</p>	
                     </div>
-                    <div class="form-check  text-md-start ms-md-2 ms-2" style="font-size:20px;">
+                    <div class="form-check text-start text-md-start ms-md-2 ms-2" style="font-size:20px;">
                         <input class="form-check-input" type="checkbox" value="" id="agree" onclick="finish()">
                         <label class="form-check-label" for="flexCheckDefault">
                            我同意以上條款
@@ -214,9 +253,9 @@
         </div>
         <div class="row justify-content-center mt-md-2 mt-lg-2 mt-2" >
             <div class="col-8 col-md-6 col-lg-6 green text-md-start text-start" id="Gate04">
-                <p style="font-size:20px;text-align:center;">Gate-04-認證碼</p>
-                <p style="font-size:20px;">1.於伺服器 #terminal 頻道輸入 #atid 指令可獲取自己的Discord ID</p>
-                <p style="font-size:20px;">2.請確實輸入ID，否則產生的驗證碼為無效驗證碼</p>
+                <p style="text-align:center;">Gate-04-認證碼</p>
+                <p>1.於伺服器 #terminal 頻道輸入 #atid 指令可獲取自己的Discord ID</p>
+                <p>2.請確實輸入ID，否則產生的驗證碼為無效驗證碼</p>
                 <div class="row justify-content-start">
 					<div class="col-md-6 col-6">
 						<div class="input-group mb-md-3 mb-3 ">
@@ -227,13 +266,13 @@
                         <button type="button" class="btn btn-secondary" onclick="progress()">產生驗證碼</button>
                     </div>
 				</div>
-                <p style="font-size:20px;">3.於伺服器 #terminal 頻道輸入指令 #check + 你的驗證碼</p>
-                <p style="font-size:20px;">範例: #check 8@2f89%2</p>
-                <p id="out" style="color:yellow;text-align:left;font-size:19px;"></p>
+                <p>3.於伺服器 #terminal 頻道輸入指令 #check + 你的驗證碼</p>
+                <p>範例: #check 8@2f89%2</p>
+                <p id="out" style="color:yellow;text-align:left;"></p>
             </div>
         </div>
     </div>
-    <p class="text-center mt-2" style="color:red;font-size:15px;">如有任何指令或驗證碼無法運作，請聯繫管理員或幹幹的#4971</p>
+    <p class="text-center mt-2" style="color:red;">如有任何指令或驗證碼無法運作，請聯繫管理員或幹幹的#4971</p>
     
 
 </body>
