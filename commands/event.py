@@ -18,14 +18,26 @@ class Event(Cog_Extension):
             role = discord.utils.get(member.guild.roles,id=(int(data["YueNormalMember"]))) #普通會員身份
             await member.add_roles(role)
             await member.send(f"{member.name} 群內有許多資源,可善加利用,並遵守相關規定,謝謝配合")
-        
+        elif member.guild.id==(int(data["Rabbit"])):
+            channel=self.bot.get_channel(int(data["RabbitMainRoom"]))
+            await channel.send(f'{member}已加入,太草了') 
+            role = discord.utils.get(member.guild.roles,id=(int(data["RabbitRoleNormalPeople"]))) 
+            await member.add_roles(role)
+            await member.send(f"{member.name} 程式討論區中有提供不同程式的身份組,如有需要可點按表情領取")
+
+
+
 
     @commands.Cog.listener()
     async def on_member_remove(self,member): #成員離開頻道
         if member.guild.id==(int(data["Yue"])):
             channel=self.bot.get_channel(int(data["YueMainRoom"]))  
             await channel.send(f'{member}已離開本群') 
- 
+        elif member.guild.id==(int(data["Rabbit"])):
+            channel=self.bot.get_channel(int(data["RabbitMainRoom"]))
+            await channel.send(f'{member}已離開,哭阿') 
+
+
         
 
      # 新增反應貼圖獲取身份組
@@ -50,6 +62,21 @@ class Event(Cog_Extension):
                     role=guild.get_role((int(data["YueRoleTalesRunner"]))) 
                     await payload.member.add_roles(role) 
                     await payload.member.send(f"你取得了 {role}身份組!!")
+        elif guild.id == (int(data["Rabbit"])):
+            if payload.message_id == (int(data["RabbitRoleMessage"])):
+                if str(payload.emoji)==data["RabbitC++"]: 
+                    role=guild.get_role((int(data["RabbitRoleC++"])))
+                    await payload.member.add_roles(role) 
+                    await payload.member.send(f"你取得了 {role}身份組!!")
+                elif str(payload.emoji)==data["RabbitPython"]: 
+                    role=guild.get_role((int(data["RabbitRolePython"]))) 
+                    await payload.member.add_roles(role) 
+                    await payload.member.send(f"你取得了 {role}身份組!!")
+
+
+
+
+
 
 
      # 取消反應貼圖取消身份組
@@ -78,7 +105,18 @@ class Event(Cog_Extension):
                     member=guild.get_member(payload.user_id)
                     await member.remove_roles(role) 
                     await member.send(f"你移除了{role}身份組!!")
-
+        elif guild.id == (int(data["Rabbit"])):
+            if payload.message_id == (int(data["RabbitRoleMessage"])):
+                if str(payload.emoji)== data["RabbitC++"]: 
+                    role=guild.get_role((int(data["RabbitRoleC++"]))) 
+                    member=guild.get_member(payload.user_id) 
+                    await member.remove_roles(role)
+                    await member.send(f"你移除了{role}身份組!!")
+                elif str(payload.emoji)==data["RabbitPython"]:  
+                    role=guild.get_role((int(data["RabbitRolePython"]))) 
+                    member=guild.get_member(payload.user_id)
+                    await member.remove_roles(role) 
+                    await member.send(f"你移除了{role}身份組!!")
 
 
 
