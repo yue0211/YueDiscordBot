@@ -14,6 +14,17 @@ class Main(Cog_Extension):
     async def clean(self,ctx,num:int): 
         await ctx.channel.purge(limit=num+1)
 
+    @commands.command() # 看個人身份
+    async def who(self,ctx,name:str):
+        for member in ctx.guild.members:
+            if  member.name==name or member.nick==name:
+                embed=discord.Embed(title="人頭", description="個人資訊", color=0xa85dd0,timestamp=datetime.datetime.now(pytz.timezone('Asia/Taipei')))
+                embed.set_author(name="幹幹的", icon_url="https://imgur.dcard.tw/tn729YT.gif")
+                embed.set_thumbnail(url=member.avatar_url)
+                embed.add_field(name="名稱：", value=f"{member}", inline=False)
+                embed.add_field(name="目前的狀態：", value=member.status, inline=False)
+                await ctx.channel.send(embed=embed)
+
 
     @commands.command()
     async def em(self,ctx): # google 搜尋 discord embed 可以生成程式碼 ,time 要自己另外設定
