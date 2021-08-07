@@ -38,6 +38,59 @@ class Event(Cog_Extension):
             await channel.send(f'{member}已離開,哭阿') 
 
 
+    @commands.Cog.listener() 
+    async def on_message(self,msg):  
+        if msg.guild.id==(int(data["Yue"])):
+            if msg.channel.id==(int(data["YueAnime"])):
+                if msg.content == "柯南": 
+                    await msg.channel.send(f'下載連結: {data["柯南"]}')
+                elif msg.content == "命運石之門": 
+                    await msg.channel.send(f'下載連結: {data["命運石之門"]}')
+                elif msg.content == "中二病也想": 
+                    await msg.channel.send(f'下載連結: {data["中二病也想"]}')
+                elif msg.content == "我的英雄學院": 
+                    await msg.channel.send(f'下載連結: {data["我的英雄學院"]}')
+                elif msg.content == "瓦尼塔斯": 
+                    await msg.channel.send(f'下載連結: {data["瓦尼塔斯"]}')
+                elif msg.content == "我們的重製人生": 
+                    await msg.channel.send(f'下載連結: {data["我們的重製人生"]}')
+                elif msg.content == "死神少爺": 
+                    await msg.channel.send(f'下載連結: {data["死神少爺"]}')
+                elif msg.content == "現實主義勇者": 
+                    await msg.channel.send(f'下載連結: {data["現實主義勇者"]}')
+                elif msg.content == "關於我轉生": 
+                    await msg.channel.send(f'下載連結: {data["關於我轉生"]}')
+                elif msg.content == "壞人大小姐": 
+                    await msg.channel.send(f'下載連結: {data["壞人大小姐"]}')
+                elif msg.content == "急戰五秒": 
+                    await msg.channel.send(f'下載連結: {data["急戰五秒"]}')
+                elif msg.content == "小林家": 
+                    await msg.channel.send(f'下載連結: {data["小林家"]}')
+                elif msg.content == "桃子男孩": 
+                    await msg.channel.send(f'下載連結: {data["桃子男孩"]}')
+                elif msg.content == "平穩世代": 
+                    await msg.channel.send(f'下載連結: {data["平穩世代"]}')
+                elif msg.content == "緋紅結繫": 
+                    await msg.channel.send(f'下載連結: {data["緋紅結繫"]}')
+                elif msg.content == "女神宿舍": 
+                    await msg.channel.send(f'下載連結: {data["女神宿舍"]}')
+                elif msg.content == "不存在": 
+                    await msg.channel.send(f'下載連結: {data["不存在"]}')
+                elif msg.content == "海賊王": 
+                    await msg.channel.send(f'下載連結: {data["海賊王"]}')
+                elif msg.content == "東京復仇者": 
+                    await msg.channel.send(f'下載連結: {data["東京復仇者"]}')
+                elif msg.content == "奇巧計程車": 
+                    await msg.channel.send(f'下載連結: {data["奇巧計程車"]}')
+                elif msg.content == "魔法科高中": 
+                    await msg.channel.send(f'下載連結: {data["魔法科高中"]}')
+                elif msg.content == "暗黑企業": 
+                    await msg.channel.send(f'下載連結: {data["暗黑企業"]}')
+                elif msg.content == "伊甸星原": 
+                    await msg.channel.send(f'下載連結: {data["伊甸星原"]}')
+               
+                
+
         
 
      # 新增反應貼圖獲取身份組
