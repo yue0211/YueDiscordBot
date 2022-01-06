@@ -33,14 +33,12 @@ def get_var(url=ENDPOINT, device=DEVICE_LABEL, variable=VARIABLE_LABEL,token=TOK
 
 class Raspberry(Cog_Extension):
 
-    @commands.command()  # 清除資料
-    async def clean(self,ctx,num:int): 
-        await ctx.channel.purge(limit=num+1)
 
     @commands.command()
     async def forward(self,ctx):  # 樹梅派的登入確認
         if get_var() ==1:
             await ctx.channel.send("登入成功")
+            await ctx.channel.send("前進")   
         else:
             await ctx.channel.send("登入失敗")
 
