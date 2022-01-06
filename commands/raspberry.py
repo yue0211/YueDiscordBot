@@ -66,7 +66,7 @@ class Raspberry(Cog_Extension):
             direction = 1
             payload = {VARIABLE_LABEL2: direction}
             post_var(payload)
-            await ctx.channel.send("已完成前進指令")
+            await ctx.channel.send("已完成車子的前進指令")
         else:
             await ctx.channel.send("登入失敗，無法操控車子")
 
@@ -76,7 +76,7 @@ class Raspberry(Cog_Extension):
             direction = 2
             payload = {VARIABLE_LABEL2: direction}
             post_var(payload)
-            await ctx.channel.send("已完成前進指令")
+            await ctx.channel.send("已完成車子的後退指令")
         else:
             await ctx.channel.send("登入失敗，無法操控車子")
 
@@ -86,7 +86,7 @@ class Raspberry(Cog_Extension):
             direction = 3
             payload = {VARIABLE_LABEL2: direction}
             post_var(payload)
-            await ctx.channel.send("已完成前進指令")
+            await ctx.channel.send("已完成車子的左轉指令")
         else:
             await ctx.channel.send("登入失敗，無法操控車子")
     
@@ -96,7 +96,7 @@ class Raspberry(Cog_Extension):
             direction = 4
             payload = {VARIABLE_LABEL2: direction}
             post_var(payload)
-            await ctx.channel.send("已完成前進指令")
+            await ctx.channel.send("已完成車子的右轉指令")
         else:
             await ctx.channel.send("登入失敗，無法操控車子")
 
