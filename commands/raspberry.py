@@ -25,7 +25,7 @@ def get_var(url=ENDPOINT, device=DEVICE_LABEL, variable=VARIABLE_LABEL,token=TOK
                 attempts += 1
                 time.sleep(1)
                 #print("[INFO] Results:")
-                return req.text
+                return int(float(req.text))
 
         except Exception as e:
             print("[ERROR] Error posting, details: {}".format(e))
@@ -36,8 +36,7 @@ class Raspberry(Cog_Extension):
 
     @commands.command()
     async def forward(self,ctx):  # 樹梅派的登入確認
-        await ctx.channel.send(get_var())
-        if get_var() =="1":
+        if get_var() ==1:
             await ctx.channel.send("登入成功")
             await ctx.channel.send("前進")   
         else:
