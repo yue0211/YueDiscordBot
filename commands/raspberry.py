@@ -110,7 +110,7 @@ class Raspberry(Cog_Extension):
             await ctx.channel.send("登入失敗，無法操控車子")
 
     @commands.command()
-    async def S(self,ctx):  # 讓樹梅派的車子停止運轉
+    async def stop(self,ctx):  # 讓樹梅派的車子停止運轉
         if get_var() ==1:
             stop = -1
             payload = {VARIABLE_LABEL2: stop}
