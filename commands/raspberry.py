@@ -119,11 +119,16 @@ class Raspberry(Cog_Extension):
         else:
             await ctx.channel.send("登入失敗，無法操控車子")
 
+    @commands.command()
+    async def b(self,ctx):  # 讓樹梅派的車子停止運轉
+        if get_var() ==1:
+            sound = 5
+            payload = {VARIABLE_LABEL2: sound}
+            post_var(payload)
+            await ctx.channel.send("已完成停止車子的指令")
+        else:
+            await ctx.channel.send("登入失敗，無法操控車子")
+
 
 def setup(bot): #運行bot時,會呼叫 setup => 註冊
     bot.add_cog(Raspberry(bot))
-
-
-
-
-
