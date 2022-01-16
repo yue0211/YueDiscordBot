@@ -120,12 +120,12 @@ class Raspberry(Cog_Extension):
             await ctx.channel.send("登入失敗，無法操控車子")
 
     @commands.command()
-    async def b(self,ctx):  # 讓樹梅派的車子停止運轉
+    async def sound(self,ctx):  # 讓樹梅派的車子上的蜂鳴器發出聲音
         if get_var() ==1:
             sound = 5
             payload = {VARIABLE_LABEL2: sound}
             post_var(payload)
-            await ctx.channel.send("已完成停止車子的指令")
+            await ctx.channel.send("已完成按喇叭的指令")
         else:
             await ctx.channel.send("登入失敗，無法操控車子")
 
